@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 import { getQuizById } from '../data/quizzes';
 import { saveQuizAttempt, saveQuizProgress, getQuizProgress, clearQuizProgress } from '../utils/storage';
 import type { QuizAttempt } from '../types';
@@ -16,23 +16,27 @@ export const QuizPage = () => {
   const { user } = useAuth();
   const quiz = id ? getQuizById(id) : undefined;
 
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, number>>({});
-  const [timeElapsed, setTimeElapsed] = useState(0);
+  // Initialize state with saved progress
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(() => {
+    if (!id) return 0;
+    const savedProgress = getQuizProgress(id);
+    return savedProgress?.currentQuestionIndex ?? 0;
+  });
+  
+  const [answers, setAnswers] = useState<Record<string, number>>(() => {
+    if (!id) return {};
+    const savedProgress = getQuizProgress(id);
+    return savedProgress?.answers ?? {};
+  });
+  
+  const [timeElapsed, setTimeElapsed] = useState(() => {
+    if (!id) return 0;
+    const savedProgress = getQuizProgress(id);
+    return savedProgress?.timeElapsed ?? 0;
+  });
+  
   const [isCompleted, setIsCompleted] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
-
-  useEffect(() => {
-    if (!quiz || !id) return;
-
-    // Load saved progress
-    const savedProgress = getQuizProgress(id);
-    if (savedProgress) {
-      setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
-      setAnswers(savedProgress.answers);
-      setTimeElapsed(savedProgress.timeElapsed);
-    }
-  }, [id, quiz]);
 
   useEffect(() => {
     if (isCompleted) return;
@@ -104,14 +108,18 @@ export const QuizPage = () => {
       return total + (answers[question.id] === question.correctAnswer ? 1 : 0);
     }, 0);
 
+    // eslint-disable-next-line react-hooks/purity
+    const attemptId = `attempt-${Date.now()}`;
+    const completionTime = new Date().toISOString();
+
     const attempt: QuizAttempt = {
-      id: `attempt-${Date.now()}`,
+      id: attemptId,
       quizId: quiz.id,
       userId: user.id,
       answers,
       score,
       totalQuestions: quiz.questions.length,
-      completedAt: new Date().toISOString(),
+      completedAt: completionTime,
       timeTaken: timeElapsed,
     };
 

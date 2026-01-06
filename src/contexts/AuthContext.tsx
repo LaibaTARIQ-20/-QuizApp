@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { User, AuthState } from '../types';
 import { getUser, saveUser, removeUser } from '../utils/storage';
@@ -9,23 +9,17 @@ interface AuthContextType extends AuthState {
   register: (username: string, email: string) => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+// eslint-disable-next-line react-refresh/only-export-components
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [authState, setAuthState] = useState<AuthState>({
-    user: null,
-    isAuthenticated: false,
-  });
-
-  useEffect(() => {
+  const [authState, setAuthState] = useState<AuthState>(() => {
     const user = getUser();
-    if (user) {
-      setAuthState({
-        user,
-        isAuthenticated: true,
-      });
-    }
-  }, []);
+    return {
+      user,
+      isAuthenticated: !!user,
+    };
+  });
 
   const login = (username: string, email: string) => {
     const user: User = {
@@ -58,12 +52,4 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </AuthContext.Provider>
   );
-};
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
 };
