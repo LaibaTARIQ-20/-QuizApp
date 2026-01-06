@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = (username: string, email: string) => {
     const user: User = {
-      id: `user-${Date.now()}`,
+      id: crypto.randomUUID(),
       username,
       email,
       createdAt: new Date().toISOString(),

@@ -108,8 +108,7 @@ export const QuizPage = () => {
       return total + (answers[question.id] === question.correctAnswer ? 1 : 0);
     }, 0);
 
-    // eslint-disable-next-line react-hooks/purity
-    const attemptId = `attempt-${Date.now()}`;
+    const attemptId = crypto.randomUUID();
     const completionTime = new Date().toISOString();
 
     const attempt: QuizAttempt = {
