@@ -30,7 +30,7 @@ export default function Header() {
         scrolled ? 'bg-[#0a0d14]/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg: px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 py-4">
           {/* Logo */}
           <a href="#home" className="flex-shrink-0">
@@ -45,7 +45,7 @@ export default function Header() {
                 href={item.href}
                 className="text-gray-300 hover:text-white transition-colors duration-200 text-base"
               >
-                {item. label}
+                {item.label}
               </a>
             ))}
           </nav>
@@ -82,11 +82,11 @@ export default function Header() {
               {navItems.map((item) => (
                 <a
                   key={item.label}
-                  href={item. href}
+                  href={item.href}
                   className="text-gray-300 hover:text-white transition-colors duration-200 px-4 py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item. label}
+                  {item.label}
                 </a>
               ))}
               <div className="flex flex-col space-y-2 px-4 pt-4 border-t border-gray-800">
