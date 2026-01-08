@@ -15,54 +15,57 @@ export default function Header() {
   }, [])
 
   const navItems = [
-    { label: 'Home', href: '#home' },
+    { label: 'Home', href:  '#home' },
     { label: 'Resources', href: '#resources' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Customers', href: '#customers' },
+    { label:  'Pricing', href: '#pricing' },
+    { label:  'Customers', href: '#customers' },
   ]
 
   return (
     <motion.header
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      animate={{ y:  0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0a0d14]/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+        scrolled ?  'bg-[#0a0d14]/80 backdrop-blur-lg shadow-lg' :  'bg-transparent'
       }`}
+      style={{ paddingLeft: '3rem', paddingRight: '3rem' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg: px-8">
-        <div className="flex items-center justify-between h-16 py-4">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#home" className="flex-shrink-0">
-            <Logo />
-          </a>
+          <div className="flex-shrink-0" style={{ marginLeft: '1rem' }}>
+            <a href="#home" className="block">
+              <Logo />
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-12">
+          <nav className="hidden md:flex items-center gap-8 lg:gap-12 flex-1 justify-center">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors duration-200 text-base"
+                className="text-gray-300 hover:text-white transition-colors duration-200 text-base font-medium whitespace-nowrap"
               >
-                {item. label}
+                {item.label}
               </a>
             ))}
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Button variant="ghost" size="sm">
+          <div className="hidden md:flex items-center gap-6" style={{ marginRight: '1rem' }}>
+            <Button variant="ghost" size="sm" className="px-6">
               Sign in
             </Button>
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm" className="px-6">
               Sign up
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setMobileMenuOpen(! mobileMenuOpen)}
             className="md:hidden text-gray-300 hover:text-white p-2"
             aria-label="Toggle menu"
           >
@@ -74,22 +77,22 @@ export default function Header() {
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity:  1, height: 'auto' }}
-            exit={{ opacity:  0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
             className="md:hidden py-4 border-t border-gray-800"
           >
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.label}
-                  href={item. href}
+                  href={item.href}
                   className="text-gray-300 hover:text-white transition-colors duration-200 px-4 py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item. label}
+                  {item.label}
                 </a>
               ))}
-              <div className="flex flex-col space-y-2 px-4 pt-4 border-t border-gray-800">
+              <div className="flex flex-col space-y-3 px-4 pt-4 border-t border-gray-800">
                 <Button variant="ghost" size="sm">
                   Sign in
                 </Button>

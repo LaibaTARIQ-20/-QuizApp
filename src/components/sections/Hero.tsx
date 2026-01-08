@@ -26,16 +26,16 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion. div
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity:  1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           {/* Beta Badge */}
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity:  1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             <Sparkles size={16} className="text-purple-400" />
@@ -46,7 +46,7 @@ export default function Hero() {
           <motion.h1 
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity:  1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="text-white">The API Security</span>
@@ -61,7 +61,7 @@ export default function Hero() {
             className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration:  0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
           </motion.p>
@@ -70,7 +70,7 @@ export default function Hero() {
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity:  1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <Button variant="primary" size="lg">
