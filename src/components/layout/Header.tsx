@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 import Logo from '../ui/Logo'
 import Button from '../ui/Button'
 
@@ -15,10 +15,11 @@ export default function Header() {
   }, [])
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Resources', href: '#resources' },
+    { label: 'About', href: '#about' },
+    { label: 'Integrations', href: '#integrations' },
     { label: 'Pricing', href: '#pricing' },
     { label: 'Customers', href: '#customers' },
+    { label: 'Changelog', href: '#changelog' },
   ]
 
   return (
@@ -27,7 +28,7 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0a0d14]/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-[#0a0e27]/80 backdrop-blur-lg shadow-lg' : 'bg-[#0a0e27]/60 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,6 +58,7 @@ export default function Header() {
             </Button>
             <Button variant="primary" size="sm">
               Sign up
+              <ArrowRight className="ml-2" size={16} />
             </Button>
           </div>
 

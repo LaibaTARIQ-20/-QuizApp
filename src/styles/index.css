@@ -13,7 +13,7 @@
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #0a0d14;
+  background-color: #0a0e27;
   color: #f3f4f6;
   overflow-x: hidden;
 }
@@ -28,7 +28,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0d14;
+  background: #0a0e27;
 }
 
 ::-webkit-scrollbar-thumb {
