@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight, Sparkles, BookOpen } from 'lucide-react'
 import Button from '../ui/Button'
 import GradientBlur from '../ui/GradientBlur'
+import StarField from '../ui/StarField'
 
 export default function Hero() {
   const features = ['Real-time Monitoring', 'AI-Powered Detection', 'Zero Configuration']
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
+      {/* Star Field */}
+      <StarField />
+      
       {/* Animated Gradient Backgrounds */}
       <GradientBlur color="purple" size="large" className="top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       <GradientBlur color="pink" size="medium" className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
@@ -40,6 +44,7 @@ export default function Hero() {
           >
             <Sparkles size={16} className="text-purple-400" />
             <span className="text-sm text-purple-300">API Studio is now in beta</span>
+            <ArrowRight size={14} className="text-purple-400" />
           </motion.div>
 
           {/* Main Heading */}
@@ -78,7 +83,7 @@ export default function Hero() {
               <ArrowRight className="ml-2" size={20} />
             </Button>
             <Button variant="outline" size="lg">
-              <Sparkles className="mr-2" size={20} />
+              <BookOpen className="mr-2" size={20} />
               Read the docs
             </Button>
           </motion.div>
