@@ -10,15 +10,15 @@ export default function GradientBlur({
   className = '',
 }: GradientBlurProps) {
   const colors = {
-    purple: 'from-purple-600/40 via-purple-500/30 to-transparent',
-    pink: 'from-pink-600/40 via-pink-500/30 to-transparent',
-    blue: 'from-blue-600/40 via-blue-500/30 to-transparent',
+    purple: 'from-purple-600/60 via-purple-500/40 to-transparent',
+    pink: 'from-pink-600/60 via-pink-500/40 to-transparent',
+    blue: 'from-blue-600/60 via-blue-500/40 to-transparent',
   }
 
   const sizes = {
     small: 'w-64 h-64',
     medium: 'w-96 h-96',
-    large: 'w-[600px] h-[600px]',
+    large: 'w-[700px] h-[700px]',
   }
 
   return (

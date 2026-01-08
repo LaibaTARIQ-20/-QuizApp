@@ -1,47 +1,41 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Tailwind directives */
 @import "tailwindcss";
 
-@theme {
-  --color-bg: 255 255 255;
-  --color-box: 255 255 255;
-  --box-border: 229 231 235;
-  --box-sd: 226 232 240 / 0.5;
-  --heading-1: 23 37 84;
-  --heading-2: 31 41 55;
-  --heading-3: 55 65 81;
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.dark {
-  --color-bg: 3 7 18;
-  --color-box: 17 24 39;
-  --box-border: 243 244 246 / 0.1;
-  --box-sd: transparent;
-  --heading-1: 255 255 255;
-  --heading-2: 243 244 246;
-  --heading-3: 209 213 219;
-}
-
-@layer utilities {
-  .bg-body {
-    background-color: rgb(var(--color-bg));
-  }
-  .bg-box-bg {
-    background-color: rgb(var(--color-box));
-  }
-  .text-heading-1 {
-    color: rgb(var(--heading-1));
-  }
-  .text-heading-2 {
-    color: rgb(var(--heading-2));
-  }
-  .text-heading-3 {
-    color: rgb(var(--heading-3));
-  }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #0a0d14;
+  color: #f3f4f6;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Raleway", sans-serif;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0d14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b5cf6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
 }

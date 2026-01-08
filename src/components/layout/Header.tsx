@@ -30,33 +30,33 @@ export default function Header() {
         scrolled ? 'bg-[#0a0d14]/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg: px-8">
+        <div className="flex items-center justify-between h-16 py-4">
           {/* Logo */}
           <a href="#home" className="flex-shrink-0">
             <Logo />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-12">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors duration-200"
+                className="text-gray-300 hover:text-white transition-colors duration-200 text-base"
               >
-                {item.label}
+                {item. label}
               </a>
             ))}
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-6">
             <Button variant="ghost" size="sm">
               Sign in
             </Button>
             <Button variant="primary" size="sm">
-              Buy Now · $49
+              Sign up
             </Button>
           </div>
 
@@ -74,27 +74,27 @@ export default function Header() {
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            animate={{ opacity:  1, height: 'auto' }}
+            exit={{ opacity:  0, height: 0 }}
             className="md:hidden py-4 border-t border-gray-800"
           >
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.label}
-                  href={item.href}
+                  href={item. href}
                   className="text-gray-300 hover:text-white transition-colors duration-200 px-4 py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  {item. label}
                 </a>
               ))}
               <div className="flex flex-col space-y-2 px-4 pt-4 border-t border-gray-800">
-                <Button variant="ghost" className="w-full">
+                <Button variant="ghost" size="sm">
                   Sign in
                 </Button>
-                <Button variant="primary" className="w-full">
-                  Buy Now · $49
+                <Button variant="primary" size="sm">
+                  Sign up
                 </Button>
               </div>
             </nav>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import Button from '../ui/Button'
 import GradientBlur from '../ui/GradientBlur'
 
@@ -7,7 +7,7 @@ export default function Hero() {
   const features = ['Real-time Monitoring', 'AI-Powered Detection', 'Zero Configuration']
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
       {/* Animated Gradient Backgrounds */}
       <GradientBlur color="purple" size="large" className="top-0 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       <GradientBlur color="pink" size="medium" className="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
@@ -26,16 +26,27 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
+        <motion. div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity:  1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          {/* Beta Badge */}
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-purple-500/30 bg-purple-500/10 backdrop-blur-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity:  1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <Sparkles size={16} className="text-purple-400" />
+            <span className="text-sm text-purple-300">API Studio is now in beta</span>
+          </motion.div>
+
           {/* Main Heading */}
           <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity:  1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="text-white">The API Security</span>
@@ -47,20 +58,19 @@ export default function Hero() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration:  0.8, delay: 0.4 }}
           >
-            The Enterprise-grade solution to secure your APIs with real-time threat detection, 
-            comprehensive monitoring, and automated responses.
+            Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity:  1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <Button variant="primary" size="lg">
@@ -68,52 +78,33 @@ export default function Hero() {
               <ArrowRight className="ml-2" size={20} />
             </Button>
             <Button variant="outline" size="lg">
-              View Documentation
+              <Sparkles className="mr-2" size={20} />
+              Read the docs
             </Button>
           </motion.div>
 
           {/* Feature Pills */}
           <motion.div
-            className="flex flex-wrap gap-4 justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            className="flex flex-wrap gap-4 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             {features.map((feature, index) => (
               <motion.div
                 key={feature}
-                className="px-6 py-3 bg-gray-800/50 backdrop-blur-sm rounded-full border border-purple-500/30 text-gray-300"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                whileHover={{ scale: 1.05, borderColor: 'rgba(139, 92, 246, 0.6)' }}
               >
-                <span className="text-purple-400 mr-2">✓</span>
-                {feature}
+                <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-sm text-gray-300">{feature}</span>
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 0.8, 
-            delay: 1.2, 
-            repeat: Infinity, 
-            repeatType: 'reverse' 
-          }}
-        >
-          <div className="w-6 h-10 border-2 border-purple-500 rounded-full flex justify-center">
-            <motion.div
-              className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2"
-              animate={{ y: [0, 16, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-          </div>
         </motion.div>
       </div>
     </section>
