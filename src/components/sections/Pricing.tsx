@@ -55,10 +55,10 @@ export default function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="py-16 relative overflow-hidden">
+    <section id="pricing" className="py-20 relative overflow-hidden">
       <GradientBlur color="purple" size="large" className="top-1/2 right-0 translate-x-1/2 -translate-y-1/2 opacity-30" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-12"
@@ -76,7 +76,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}

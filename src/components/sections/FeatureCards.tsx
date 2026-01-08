@@ -1,3 +1,4 @@
+// src/components/sections/FeatureCards.tsx
 import { motion } from 'framer-motion'
 import { Shield, Activity, FileText, Check } from 'lucide-react'
 
@@ -24,10 +25,10 @@ export default function FeatureCards() {
   ]
 
   return (
-    <section className="py-16 relative overflow-hidden bg-[#070911]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-20 relative overflow-hidden bg-[#070911]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}

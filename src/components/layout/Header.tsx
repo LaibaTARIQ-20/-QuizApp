@@ -15,18 +15,11 @@ export default function Header() {
   }, [])
 
   const navItems = [
-<<<<<<< HEAD
-    { label: 'Home', href:  '#home' },
-    { label: 'Resources', href: '#resources' },
-    { label:  'Pricing', href: '#pricing' },
-    { label:  'Customers', href: '#customers' },
-=======
     { label: 'About', href: '#about' },
     { label: 'Integrations', href: '#integrations' },
     { label: 'Pricing', href: '#pricing' },
     { label: 'Customers', href: '#customers' },
     { label: 'Changelog', href: '#changelog' },
->>>>>>> 8a6c7e754f0e1fb1d10b073dfc5a187d72d9f915
   ]
 
   return (
@@ -35,21 +28,12 @@ export default function Header() {
       animate={{ y:  0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-<<<<<<< HEAD
-        scrolled ?  'bg-[#0a0d14]/80 backdrop-blur-lg shadow-lg' :  'bg-transparent'
-=======
         scrolled ? 'bg-[#0a0e27]/80 backdrop-blur-lg shadow-lg' : 'bg-[#0a0e27]/60 backdrop-blur-sm'
->>>>>>> 8a6c7e754f0e1fb1d10b073dfc5a187d72d9f915
       }`}
       style={{ paddingLeft: '3rem', paddingRight: '3rem' }}
     >
-<<<<<<< HEAD
-      <div className="max-w-[1400px] mx-auto">
-        <div className="flex items-center justify-between h-20">
-=======
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 py-4">
->>>>>>> 8a6c7e754f0e1fb1d10b073dfc5a187d72d9f915
           {/* Logo */}
           <div className="flex-shrink-0" style={{ marginLeft: '1rem' }}>
             <a href="#home" className="block">

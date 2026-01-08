@@ -46,6 +46,7 @@ export default function Hero() {
             <span className="text-sm text-purple-300">API Studio is now in beta</span>
             <ArrowRight size={14} className="text-purple-400" />
           </motion.div>
+          <br />
 
           {/* Main Heading */}
           <motion.h1 
@@ -60,6 +61,7 @@ export default function Hero() {
               Framework
             </span>
           </motion.h1>
+          <br />
 
           {/* Subtitle */}
           <motion.p
@@ -70,7 +72,7 @@ export default function Hero() {
           >
             Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
           </motion.p>
-
+          <br />
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
@@ -87,7 +89,7 @@ export default function Hero() {
               Read the docs
             </Button>
           </motion.div>
-
+          <br />
           {/* Feature Pills */}
           <motion.div
             className="flex flex-wrap gap-4 justify-center items-center"

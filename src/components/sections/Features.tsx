@@ -28,7 +28,7 @@ export default function Features() {
     <section className="py-20 relative overflow-hidden bg-gradient-to-b from-transparent via-purple-900/5 to-transparent">
       <GradientBlur color="purple" size="large" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Section Label */}
         <motion.p
           className="text-purple-400 text-sm mb-3"

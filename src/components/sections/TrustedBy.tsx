@@ -2,47 +2,54 @@ import { motion } from 'framer-motion'
 
 export default function TrustedBy() {
   const companies = [
-    'Facebook', 'tinder', 'Airbnb', 'Cadbury', 'Canon', 'Spark', 'Quora',
-    'Stripe', 'GitHub', 'CAPCO', 'CrowdStrike'
+    { name: 'tinder', style: 'normal' },
+    { name: 'airbnb', style: 'normal' },
+    { name: 'Cadbury', style: 'script' },
+    { name: 'Canon', style: 'normal' },
+    { name: 'Spark', style: 'script' },
+    { name: 'Quora', style: 'normal' },
+    { name: 'HubSpot', style: 'normal' }
   ]
 
   return (
-    <section className="py-8 border-y border-gray-800/50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.p 
-          className="text-center text-gray-400 text-sm mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Trusted by leading companies worldwide
-        </motion.p>
-        
+    <section className="relative py-20 bg-gradient-to-b from-[#0a1628] to-[#0f1629] overflow-hidden">
+      <div className="relative max-w-full">
         {/* Scrolling Container */}
-        <div className="relative">
+        <div className="relative flex items-center">
           <motion.div 
-            className="flex space-x-12 items-center"
+            className="flex items-center gap-16 lg:gap-20 xl:gap-24"
             animate={{
-              x: [0, -1000],
+              x: [0, -1400],
             }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 20,
+                duration: 30,
                 ease: "linear",
               },
             }}
           >
-            {/* Double the companies for seamless loop */}
-            {[...companies, ...companies].map((company, index) => (
-              <div 
-                key={`${company}-${index}`}
+            {/* Triple the companies for seamless infinite loop */}
+            {[...companies, ...companies, ...companies].map((company, index) => (
+              <div
+                key={`${company.name}-${index}`}
                 className="flex items-center justify-center flex-shrink-0"
               >
-                <span className="text-gray-500 text-base font-semibold whitespace-nowrap hover:text-gray-300 transition-colors cursor-default">
-                  {company}
+                <span 
+                  className={`text-gray-400 whitespace-nowrap hover:text-gray-200 transition-colors duration-300 cursor-default ${
+                    company.style === 'script' 
+                      ? 'text-2xl lg:text-3xl font-bold italic' 
+                      : 'text-xl lg:text-2xl font-semibold'
+                  }`}
+                  style={{
+                    fontFamily: company.style === 'script' 
+                      ? 'Georgia, "Times New Roman", serif' 
+                      : 'system-ui, -apple-system, sans-serif',
+                    letterSpacing: company.style === 'script' ? '0.02em' : 'normal'
+                  }}
+                >
+                  {company.name}
                 </span>
               </div>
             ))}

@@ -1,11 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { motion } from 'framer-motion'
-import type { ReactNode } from 'react'
+import type { ReactNode, ButtonHTMLAttributes } from 'react'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline'
   size?: 'sm' | 'md' | 'lg'
   children:  ReactNode
   className?: string
+  onClick?: () => void
+  disabled?: boolean
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export default function Button({ 
@@ -13,7 +17,9 @@ export default function Button({
   size = 'md',
   children,
   className = '',
-  ...props 
+  onClick,
+  disabled,
+  type = 'button',
 }: ButtonProps) {
   const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
   
@@ -37,7 +43,9 @@ const sizes = {
       whileHover={{ scale:   1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      {...props}
+      onClick={onClick}
+      disabled={disabled}
+      type={type}
     >
       {children}
     </motion.button>
