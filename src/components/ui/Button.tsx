@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { motion } from 'framer-motion'
-import type { ReactNode, ButtonHTMLAttributes } from 'react'
+import type { ReactNode } from 'react'
 
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline'
